@@ -8,7 +8,7 @@ from mkdocs.commands.build import build
 from mkdocs.config import load_config
 from mkdocs.config.defaults import MkDocsConfig
 
-from nbsync.plugin import Config, Plugin
+from mkdocs_nbsync.plugin import Config, Plugin
 
 
 @pytest.fixture(scope="module")
@@ -27,7 +27,7 @@ def mkdocs_config(config_file: Path):
 
 @pytest.fixture(scope="module")
 def nbstore_plugin(mkdocs_config: MkDocsConfig):
-    return mkdocs_config.plugins["nbsync"]
+    return mkdocs_config.plugins["mkdocs-nbsync"]
 
 
 def test_nbstore_plugin(nbstore_plugin: Plugin):
@@ -58,7 +58,7 @@ def config_plugin(tmp_path):
     os.chdir(dest)
     sys.path.insert(0, ".")
     config = load_config("mkdocs.yaml")
-    plugin = config.plugins["nbsync"]
+    plugin = config.plugins["mkdocs-nbsync"]
     assert isinstance(plugin, Plugin)
     plugin.__init__()
 
@@ -82,7 +82,7 @@ def config(config_plugin):
 
 def test_build(config: MkDocsConfig):
     config.plugins.on_startup(command="build", dirty=False)
-    plugin = config.plugins["nbsync"]
+    plugin = config.plugins["mkdocs-nbsync"]
     assert isinstance(plugin, Plugin)
 
     build(config, dirty=False)

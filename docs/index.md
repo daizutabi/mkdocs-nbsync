@@ -1,4 +1,4 @@
-# nbsync
+# mkdocs-nbsync
 
 <div class="grid cards" markdown>
 
@@ -21,11 +21,11 @@
 
 </div>
 
-## What is nbsync?
+## What is mkdocs-nbsync?
 
-nbsync is an innovative MkDocs plugin that treats Jupyter notebooks,
+mkdocs-nbsync is an innovative MkDocs plugin that treats Jupyter notebooks,
 Python scripts, and Markdown files as first-class citizens for
-documentation. Unlike traditional approaches, nbsync provides equal
+documentation. Unlike traditional approaches, mkdocs-nbsync provides equal
 capabilities across all file formats, enabling seamless integration
 and dynamic execution with real-time synchronization.
 
@@ -39,23 +39,23 @@ writers:
 
 ## Inspiration & Comparison
 
-nbsync was inspired by and builds upon the excellent work of two MkDocs
+mkdocs-nbsync was inspired by and builds upon the excellent work of two MkDocs
 plugins:
 
 - [**markdown-exec**](https://pawamoy.github.io/markdown-exec/) - Provides utilities to execute code blocks in Markdown files
 - [**mkdocs-jupyter**](https://mkdocs-jupyter.danielfrg.com/) - Enables embedding Jupyter notebooks in MkDocs
 
-While these plugins offer great functionality, nbsync takes a unified
+While these plugins offer great functionality, mkdocs-nbsync takes a unified
 approach by:
 
-1. **Equal treatment** - Unlike other solutions that prioritize one format, nbsync treats Jupyter notebooks, Python scripts, and Markdown files equally as first-class citizens
+1. **Equal treatment** - Unlike other solutions that prioritize one format, mkdocs-nbsync treats Jupyter notebooks, Python scripts, and Markdown files equally as first-class citizens
 2. **Real-time synchronization** - Changes to source files are immediately reflected in documentation
 3. **Seamless integration** - Consistent syntax across all file formats allows for flexible documentation workflows
 4. **Image syntax code execution** - Unique ability to execute code and embed visualizations anywhere Markdown image syntax (`![alt](url)`) is valid, including tables, lists, and complex layouts
 
 ## Acknowledgements
 
-The development of nbsync would not have been possible without the
+The development of mkdocs-nbsync would not have been possible without the
 groundwork laid by markdown-exec and mkdocs-jupyter. We extend our
 sincere gratitude to the developers of these projects for their
 innovative contributions to the documentation ecosystem.
@@ -106,9 +106,9 @@ layouts.
 
 ### Code Execution with markdown-exec Style Syntax
 
-nbsync supports the markdown-exec style code blocks with the `exec="1"`
+mkdocs-nbsync supports the markdown-exec style code blocks with the `exec="1"`
 attribute as a compatible approach to code execution. While this syntax
-is familiar to markdown-exec users, nbsync executes it through the
+is familiar to markdown-exec users, mkdocs-nbsync executes it through the
 Jupyter Notebook engine instead, providing the ability to render diverse
 MIME content types (HTML, SVG, images, etc.) directly in your
 documentation. This enables richer and more complex outputs than
@@ -131,7 +131,7 @@ mode.
 
 ## Getting Started
 
-Follow these steps to get started with nbsync:
+Follow these steps to get started with mkdocs-nbsync:
 
 1. [Installation](getting-started/installation.md)
 2. [Configuration](getting-started/configuration.md)

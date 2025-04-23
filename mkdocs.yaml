@@ -1,9 +1,9 @@
-site_name: nbsync
-site_url: https://daizutabi.github.io/nbsync/
+site_name: mkdocs-nbsync
+site_url: https://daizutabi.github.io/mkdocs-nbsync/
 site_description: A plugin for mkdocs to convert notebooks to markdown
 site_author: daizutabi
-repo_url: https://github.com/daizutabi/nbsync/
-repo_name: daizutabi/nbsync
+repo_url: https://github.com/daizutabi/mkdocs-nbsync/
+repo_name: daizutabi/mkdocs-nbsync
 edit_uri: edit/main/docs/
 theme:
   name: material
@@ -41,7 +41,7 @@ theme:
     - search.suggest
 plugins:
   - search
-  - nbsync:
+  - mkdocs-nbsync:
       src_dir:
         - ../notebooks
         - ../scripts

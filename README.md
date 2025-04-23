@@ -1,4 +1,4 @@
-# nbsync
+# mkdocs-nbsync
 
 [![PyPI Version][pypi-v-image]][pypi-v-link]
 [![Python Version][python-v-image]][python-v-link]
@@ -7,11 +7,11 @@
 
 <strong>Connect Jupyter notebooks to your MkDocs documentation</strong>
 
-nbsync is a MkDocs plugin that seamlessly embeds Jupyter notebook
+mkdocs-nbsync is a MkDocs plugin that seamlessly embeds Jupyter notebook
 visualizations in your documentation, solving the disconnect between
 code development and documentation.
 
-## Why Use nbsync?
+## Why Use mkdocs-nbsync?
 
 ### The Documentation Challenge
 
@@ -56,7 +56,7 @@ This plugin creates a live bridge between your notebooks and documentation by:
 ### 1. Installation
 
 ```bash
-pip install nbsync
+pip install mkdocs-nbsync
 ```
 
 ### 2. Configuration
@@ -65,7 +65,7 @@ Add to your `mkdocs.yml`:
 
 ```yaml
 plugins:
-  - nbsync:
+  - mkdocs-nbsync:
       src_dir: ../notebooks
 ```
 
@@ -114,11 +114,11 @@ Contributions are welcome! Please open an issue or submit a pull request.
 This project is licensed under the MIT License.
 
 <!-- Badges -->
-[pypi-v-image]: https://img.shields.io/pypi/v/nbsync.svg
-[pypi-v-link]: https://pypi.org/project/nbsync/
-[python-v-image]: https://img.shields.io/pypi/pyversions/nbsync.svg
-[python-v-link]: https://pypi.org/project/nbsync
-[GHAction-image]: https://github.com/daizutabi/nbsync/actions/workflows/ci.yaml/badge.svg?branch=main&event=push
-[GHAction-link]: https://github.com/daizutabi/nbsync/actions?query=event%3Apush+branch%3Amain
-[codecov-image]: https://codecov.io/github/daizutabi/nbsync/coverage.svg?branch=main
-[codecov-link]: https://codecov.io/github/daizutabi/nbsync?branch=main
+[pypi-v-image]: https://img.shields.io/pypi/v/mkdocs-nbsync.svg
+[pypi-v-link]: https://pypi.org/project/mkdocs-nbsync/
+[python-v-image]: https://img.shields.io/pypi/pyversions/mkdocs-nbsync.svg
+[python-v-link]: https://pypi.org/project/mkdocs-nbsync
+[GHAction-image]: https://github.com/daizutabi/mkdocs-nbsync/actions/workflows/ci.yaml/badge.svg?branch=main&event=push
+[GHAction-link]: https://github.com/daizutabi/mkdocs-nbsync/actions?query=event%3Apush+branch%3Amain
+[codecov-image]: https://codecov.io/github/daizutabi/mkdocs-nbsync/coverage.svg?branch=main
+[codecov-link]: https://codecov.io/github/daizutabi/mkdocs-nbsync?branch=main

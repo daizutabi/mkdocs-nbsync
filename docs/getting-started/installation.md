@@ -1,6 +1,6 @@
 # Installation
 
-Installing nbsync is straightforward and can be done using uv or pip,
+Installing mkdocs-nbsync is straightforward and can be done using uv or pip,
 the Python package manager.
 
 ## Prerequisites
@@ -13,15 +13,15 @@ Before installing nbsync, ensure you have the following:
 
 ## Basic Installation
 
-Install nbsync using uv or pip:
+Install mkdocs-nbsync using uv or pip:
 
 ```bash
-uv pip install nbsync
+uv pip install mkdocs-nbsync
 # or
-pip install nbsync
+pip install mkdocs-nbsync
 ```
 
-This command installs the latest stable version of nbsync and its core
+This command installs the latest stable version of mkdocs-nbsync and its core
 dependencies.
 
 ## Installation of nbconvert

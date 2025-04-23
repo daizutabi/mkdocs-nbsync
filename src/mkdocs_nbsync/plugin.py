@@ -3,14 +3,14 @@ from __future__ import annotations
 from pathlib import Path
 from typing import TYPE_CHECKING, ClassVar
 
+import nbsync.logger
 from mkdocs.config import Config as BaseConfig
 from mkdocs.config import config_options
-from mkdocs.plugins import BasePlugin
+from mkdocs.plugins import BasePlugin, get_plugin_logger
 from mkdocs.structure.files import File
-from nbstore.store import Store
+from nbsync import Store, Synchronizer
 
-from .logger import logger
-from .sync import Synchronizer
+logger = get_plugin_logger("nbsync")
 
 if TYPE_CHECKING:
     from typing import Any
@@ -18,8 +18,7 @@ if TYPE_CHECKING:
     from mkdocs.config.defaults import MkDocsConfig
     from mkdocs.structure.files import Files
     from mkdocs.structure.pages import Page
-
-    from .cell import Cell
+    from nbsync import Cell
 
 
 class Config(BaseConfig):
@@ -34,6 +33,8 @@ class Plugin(BasePlugin[Config]):
     files: Files
 
     def on_config(self, config: MkDocsConfig, **kwargs: Any) -> MkDocsConfig:
+        nbsync.logger.configure(logger)
+
         if isinstance(self.config.src_dir, str):
             src_dirs = [self.config.src_dir]
         else:

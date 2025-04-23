@@ -1,6 +1,6 @@
 # First Steps
 
-Let's walk through a quick example of using nbsync to integrate notebooks with
+Let's walk through a quick example of using mkdocs-nbsync to integrate notebooks with
 your MkDocs documentation.
 
 ## Setting Up Your Project
@@ -23,7 +23,7 @@ my-project/
 
 ## Configure MkDocs
 
-Update your `mkdocs.yml` to include nbsync:
+Update your `mkdocs.yml` to include mkdocs-nbsync:
 
 ```yaml
 site_name: My Documentation
@@ -32,7 +32,7 @@ theme:
 
 plugins:
     - search
-    - nbsync:
+    - mkdocs-nbsync:
           src_dir:
               - ../notebooks
               - ../scripts
