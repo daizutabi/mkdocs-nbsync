@@ -33,7 +33,7 @@ class Plugin(BasePlugin[Config]):
     files: Files
 
     def on_config(self, config: MkDocsConfig, **kwargs: Any) -> MkDocsConfig:
-        nbsync.logger.configure(logger)
+        nbsync.logger.set_logger(logger)
 
         if isinstance(self.config.src_dir, str):
             src_dirs = [self.config.src_dir]
