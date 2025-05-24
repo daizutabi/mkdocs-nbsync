@@ -127,6 +127,9 @@ data = pd.DataFrame({
 ```python .md#scatter
 import matplotlib.pyplot as plt
 import seaborn as sns
+from matplotlib_inline.backend_inline import set_matplotlib_formats
+
+set_matplotlib_formats("svg")
 
 plt.figure(figsize=(3, 2))
 sns.scatterplot(data=data, x='x', y='y', hue='group')
@@ -139,6 +142,9 @@ plt.title('Scatter Plot by Group')
 ```python .md#_
 import numpy as np
 import pandas as pd
+from matplotlib_inline.backend_inline import set_matplotlib_formats
+
+set_matplotlib_formats("svg")
 
 # Generate sample data
 data = pd.DataFrame({
