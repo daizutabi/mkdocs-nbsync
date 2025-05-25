@@ -165,6 +165,20 @@ plt.title('Scatter Plot by Group')
 
 ![Scatter plot](){#scatter}
 
+You can also use the `exec` attribute to execute the code and display the result:
+
+````markdown
+```python exec="1"
+fig, ax = plt.subplots(figsize=(3, 2))
+ax.plot([1, 3, 2])
+```
+````
+
+```python exec="1"
+fig, ax = plt.subplots(figsize=(3, 2))
+ax.plot([1, 3, 2])
+```
+
 ### 7. Run Your Documentation
 
 Start the MkDocs development server:
