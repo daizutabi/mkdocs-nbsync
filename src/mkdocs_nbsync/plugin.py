@@ -82,7 +82,7 @@ class Plugin(BasePlugin[Config]):
             if isinstance(elem, str):
                 markdowns.append(elem)
 
-            elif markdown := elem.convert():
+            elif markdown := elem.convert(escape=True):
                 markdowns.append(markdown)
 
                 if elem.image.url and elem.content:
