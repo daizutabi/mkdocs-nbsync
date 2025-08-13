@@ -4,8 +4,22 @@
 [![Python Version][python-v-image]][python-v-link]
 [![Build Status][GHAction-image]][GHAction-link]
 [![Coverage Status][codecov-image]][codecov-link]
+[![Downloads](https://pepy.tech/badge/mkdocs-nbsync)](https://pepy.tech/project/mkdocs-nbsync)
+[![GitHub stars](https://img.shields.io/github/stars/daizutabi/mkdocs-nbsync.svg?style=social&label=Star&maxAge=2592000)](https://github.com/daizutabi/mkdocs-nbsync)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<strong>Connect Jupyter notebooks to your MkDocs documentation</strong>
+## 🔄 **Stop fighting with notebook documentation!**
+
+**The Problem:** Screenshots break. Exports get forgotten. Code and docs drift apart. 😩
+
+**The Solution:** One simple syntax that keeps everything in sync:
+```markdown
+![My awesome plot](notebook.ipynb){#figure-name}
+```
+
+**That's it!** No more manual exports. No more broken documentation. 🎉
+
+---
 
 mkdocs-nbsync is a MkDocs plugin that seamlessly embeds Jupyter notebook
 visualizations in your documentation, solving the disconnect between
