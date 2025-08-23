@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING, ClassVar
 
 import nbsync.logger
 from mkdocs.config import Config as BaseConfig
-from mkdocs.config import config_options
+from mkdocs.config.config_options import Type
 from mkdocs.plugins import BasePlugin, get_plugin_logger
 from mkdocs.structure.files import File
 from nbsync import Store, Synchronizer
@@ -24,13 +24,13 @@ if TYPE_CHECKING:
 class Config(BaseConfig):
     """Configuration for Nbstore plugin."""
 
-    src_dir = config_options.Type((str, list), default=".")
+    src_dir: Type[str | list[str]] = Type((str, list), default=".")
 
 
 class Plugin(BasePlugin[Config]):
     store: ClassVar[Store | None] = None
     syncs: ClassVar[dict[str, Synchronizer]] = {}
-    files: Files
+    files: Files  # pyright: ignore[reportUninitializedInstanceVariable]
 
     def on_config(self, config: MkDocsConfig, **kwargs: Any) -> MkDocsConfig:
         nbsync.logger.set_logger(logger)
@@ -76,7 +76,7 @@ class Plugin(BasePlugin[Config]):
         if src_uri not in syncs:
             syncs[src_uri] = Synchronizer(self.__class__.store)
 
-        markdowns = []
+        markdowns: list[str] = []
 
         for elem in syncs[src_uri].convert(markdown):
             if isinstance(elem, str):

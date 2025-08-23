@@ -27,6 +27,7 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Topic :: Documentation",
   "Topic :: Software Development :: Documentation",
   "Topic :: Text Processing :: Markup :: Markdown",
@@ -84,3 +85,11 @@ ignore = ["ANN401", "ARG001", "ARG002", "C901", "D", "PLR0911", "S105"]
 [tool.ruff.lint.per-file-ignores]
 "**/tests/*" = ["ANN", "ARG", "D", "FBT", "PLR", "RUF", "S", "PGH003"]
 "**/{notebooks,scripts}/*" = ["ANN", "ERA001", "NPY", "T201"]
+
+[tool.basedpyright]
+include = ["src", "tests"]
+reportAny = false
+reportExplicitAny = false
+reportIncompatibleMethodOverride = false
+reportImplicitOverride = false
+reportUnusedCallResult = false
