@@ -110,5 +110,5 @@ def _read(uri: str) -> str:
 
 def _collect_css(config: MkDocsConfig) -> list[File]:
     uris = ["css/nbsync.css"]
-    config.extra_css = uris
+    config.extra_css = [*uris, *config.extra_css]  # pyright: ignore[reportUnknownMemberType]
     return [File.generated(config, uri, content=_read(uri)) for uri in uris]
