@@ -10,6 +10,8 @@ from mkdocs.plugins import BasePlugin, get_plugin_logger
 from mkdocs.structure.files import File
 from nbsync import Store, Synchronizer
 
+import mkdocs_nbsync
+
 logger = get_plugin_logger("nbsync")
 
 if TYPE_CHECKING:
@@ -56,6 +58,10 @@ class Plugin(BasePlugin[Config]):
 
     def on_files(self, files: Files, config: MkDocsConfig, **kwargs: Any) -> Files:
         self.files = files
+
+        for file in _collect_css(config):
+            files.append(file)
+
         return files
 
     def on_page_markdown(
@@ -95,3 +101,14 @@ class Plugin(BasePlugin[Config]):
 def generate_file(cell: Cell, page_uri: str, config: MkDocsConfig) -> File:
     src_uri = (Path(page_uri).parent / cell.image.url).as_posix()
     return File.generated(config, src_uri, content=cell.content)
+
+
+def _read(uri: str) -> str:
+    root = Path(mkdocs_nbsync.__file__).parent
+    return (root / uri).read_text()
+
+
+def _collect_css(config: MkDocsConfig) -> list[File]:
+    uris = ["css/nbsync.css"]
+    config.extra_css = uris
+    return [File.generated(config, uri, content=_read(uri)) for uri in uris]
