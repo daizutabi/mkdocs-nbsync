@@ -38,22 +38,18 @@ jobs:
         run: pip install uv
       - name: Install the project
         run: uv sync
-      - name: Ruff check
-        run: uvx ruff check
-      - name: Type check (ty)
-        run: uvx ty check
-      - name: Basedpyright check
-        run: uvx basedpyright src
+      - name: Run prek hooks
+        run: uv run prek run --all-files
       - name: Run tests
         run: uv run pytest -v --junitxml=junit.xml
       - name: Upload Codecov Results
-        if: success()
-        uses: codecov/codecov-action@v4
+        if: success() && matrix.os == 'ubuntu-latest' && matrix.python-version == '3.14'
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: lcov.info
+          files: lcov.info
       - name: Upload test results to Codecov
-        if: success()
+        if: ${{ !cancelled() }} && matrix.os == 'ubuntu-latest' && matrix.python-version == '3.14'
         uses: codecov/test-results-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

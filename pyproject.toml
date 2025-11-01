@@ -36,24 +36,30 @@ requires-python = ">=3.10"
 dependencies = ["mkdocs>=1.6", "nbsync>=0.3.6"]
 
 [project.urls]
+Changelog = "https://github.com/daizutabi/mkdocs-nbsync/releases"
 Documentation = "https://daizutabi.github.io/mkdocs-nbsync/"
-Source = "https://github.com/daizutabi/mkdocs-nbsync"
+Homepage = "https://daizutabi.github.io/mkdocs-nbsync/"
 Issues = "https://github.com/daizutabi/mkdocs-nbsync/issues"
+Source = "https://github.com/daizutabi/mkdocs-nbsync"
 
 [project.entry-points."mkdocs.plugins"]
 mkdocs-nbsync = "mkdocs_nbsync.plugin:Plugin"
 
 [dependency-groups]
 dev = [
+  "basedpyright>=1.31.7",
   "ipykernel>=6.29.5",
   "matplotlib>=3.10.1",
   "mkdocs-material>=9.6.11",
   "nbconvert>=7.16.6",
+  "prek>=0.2.10",
   "pytest-clarity>=1.0.1",
   "pytest-cov>=6.1.0",
   "pytest-randomly>=3.16.0",
   "pytest-xdist>=3.6.1",
+  "ruff>=0.14.0",
   "seaborn>=0.13.2",
+  "ty>=0.0.1a25",
 ]
 
 [tool.pytest.ini_options]
@@ -86,6 +92,9 @@ ignore = ["ANN401", "ARG001", "ARG002", "C901", "D", "PLR0911", "S105"]
 "**/tests/*" = ["ANN", "ARG", "D", "FBT", "PLR", "RUF", "S", "PGH003"]
 "**/{notebooks,scripts}/*" = ["ANN", "ERA001", "NPY", "T201"]
 
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
+
 [tool.basedpyright]
 include = ["src", "tests"]
 reportAny = false
@@ -93,3 +102,6 @@ reportExplicitAny = false
 reportIncompatibleMethodOverride = false
 reportImplicitOverride = false
 reportUnusedCallResult = false
+
+[tool.ty.src]
+include = ["src", "tests"]
