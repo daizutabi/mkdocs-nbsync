@@ -1,14 +1,22 @@
+from __future__ import annotations
+
 import os
 import shutil
 import sys
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import pytest
 from mkdocs.commands.build import build
 from mkdocs.config import load_config
-from mkdocs.config.defaults import MkDocsConfig
 
 from mkdocs_nbsync.plugin import Config, Plugin
+
+if TYPE_CHECKING:
+    from mkdocs.config.defaults import MkDocsConfig
+
+# pyright: reportUnknownVariableType=false
+# pyright: reportUnknownParameterType=false
 
 
 @pytest.fixture(scope="module")
@@ -46,7 +54,7 @@ def test_nbstore_config(nbstore_config: Config):
 
 
 @pytest.fixture
-def config_plugin(tmp_path):
+def config_plugin(tmp_path: Path):
     dest = Path(tmp_path)
     root = Path(__file__).parent.parent
     config_file = root / "mkdocs.yaml"
@@ -76,7 +84,7 @@ def test_on_config(config_plugin: tuple[MkDocsConfig, Plugin]):
 
 
 @pytest.fixture
-def config(config_plugin):
+def config(config_plugin: tuple[MkDocsConfig, Plugin]):
     return config_plugin[0]
 
 
@@ -94,7 +102,7 @@ def test_on_page_markdown_fallback():
 
     plugin = FakePlugin()
     plugin.__class__.store = None
-    assert plugin.on_page_markdown("abc", None, None) == "abc"  # type: ignore
+    assert plugin.on_page_markdown("abc", None, None) == "abc"  # type: ignore  # pyright: ignore[reportArgumentType]
 
 
 def test_src_dir_list(config_plugin: tuple[MkDocsConfig, Plugin]):
