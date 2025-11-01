@@ -59,6 +59,7 @@ dev = [
   "pytest-xdist>=3.6.1",
   "ruff>=0.14.0",
   "seaborn>=0.13.2",
+  "ty>=0.0.1a25",
 ]
 
 [tool.pytest.ini_options]
@@ -91,6 +92,9 @@ ignore = ["ANN401", "ARG001", "ARG002", "C901", "D", "PLR0911", "S105"]
 "**/tests/*" = ["ANN", "ARG", "D", "FBT", "PLR", "RUF", "S", "PGH003"]
 "**/{notebooks,scripts}/*" = ["ANN", "ERA001", "NPY", "T201"]
 
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
+
 [tool.basedpyright]
 include = ["src", "tests"]
 reportAny = false
@@ -98,3 +102,6 @@ reportExplicitAny = false
 reportIncompatibleMethodOverride = false
 reportImplicitOverride = false
 reportUnusedCallResult = false
+
+[tool.ty.src]
+include = ["src", "tests"]
