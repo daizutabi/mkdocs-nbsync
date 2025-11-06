@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import TYPE_CHECKING, ClassVar
+from typing import TYPE_CHECKING, Any, ClassVar
 
 import nbsync.logger
 from mkdocs.config import Config as BaseConfig
@@ -15,8 +15,6 @@ import mkdocs_nbsync
 logger = get_plugin_logger("nbsync")
 
 if TYPE_CHECKING:
-    from typing import Any
-
     from mkdocs.config.defaults import MkDocsConfig
     from mkdocs.structure.files import Files
     from mkdocs.structure.pages import Page
