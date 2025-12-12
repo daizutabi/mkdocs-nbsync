@@ -102,7 +102,7 @@ def generate_file(cell: Cell, page_uri: str, config: MkDocsConfig) -> File:
 
 
 def _read(uri: str) -> str:
-    root = Path(mkdocs_nbsync.__file__).parent
+    root = Path(mkdocs_nbsync.__file__).parent  # ty: ignore[invalid-argument-type]
     return (root / uri).read_text()
 
 
